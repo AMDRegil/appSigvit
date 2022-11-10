@@ -1,6 +1,6 @@
 {
   "projects": {
-    "default": "pwachitchat",
-    "pwacc": "pwachitchat"
+    "default": "sigvit",
+    "pwacc": "sigvit"
   }
 }

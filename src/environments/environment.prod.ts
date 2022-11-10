@@ -1,12 +1,13 @@
 export const environment = {
   production: true,
   firebase : {
-    apiKey: 'AIzaSyCcNfs06ONZeiy_WOW1F1_Bi7MCUMlaRiQ',
-    authDomain: 'pwachitchat.firebaseapp.com',
-    databaseURL: 'https://pwachitchat.firebaseio.com',
-    projectId: 'pwachitchat',
-    storageBucket: 'pwachitchat.appspot.com',
-    messagingSenderId: '134737038795',
-    appId: '1:134737038795:web:c6932b5354ae696ad43a4e'
+    apiKey: "AIzaSyDPKYvQ06vZsgUo5KIiqufM6H__wh_eBkU",
+  authDomain: "integrasalud-1a23a.firebaseapp.com",
+  databaseURL: "https://integrasalud-1a23a-default-rtdb.firebaseio.com",
+  projectId: "integrasalud-1a23a",
+  storageBucket: "integrasalud-1a23a.appspot.com",
+  messagingSenderId: "1078357178619",
+  appId: "1:1078357178619:web:b67bc11df6b336aa1e985e",
+  measurementId: "G-MBPH2F2J53"
   }
 };

@@ -13,7 +13,7 @@ export class EmployeeService {
   // add a new employee to Firestore database collection
   addEmployee(employee: Employee) {
     // covert date string to date object
-    employee.joinDateTimestamp = new Date(employee.joinDate);
+    employee.fechaIngresoTimestamp = new Date(employee.fechaIngreso);
     // convert object of type Employee to JSON object
     // because Firestore understand JSON
     const employeeObject = {...employee};
@@ -29,7 +29,7 @@ export class EmployeeService {
   // update an object of employee to the Firestore document
   updateEmployee(employee: Employee) {
     // covert date string to date object
-    employee.joinDateTimestamp = new Date(employee.joinDate);
+    employee.fechaIngresoTimestamp = new Date(employee.fechaIngreso);
     // add date when last time updated
     employee.lastUpdated = new Date();
     // convert object of type Employee to JSON object
@@ -89,25 +89,25 @@ export class EmployeeService {
         // 👇 only when params have value in given `employee` object.
 
         // where condition to match employee with given phone
-        if (employee.phone) {
-          query = query.where('phone', '==', employee.phone);
+        if (employee.telefono) {
+          query = query.where('telefono', '==', employee.telefono);
         }
         // where condition to match employee with given salary
-        if (employee.salary) {
+        if (employee.matricula) {
           // #2. Get items by range '>=' operators, this query
           // will return the employee whose salary is
           // greater than or equal to given `employee.salary`
-          query = query.where('salary', '>=', employee.salary);
+          query = query.where('matricula', '>=', employee.matricula);
         }
         // where condition to match employee with given designation
-        if (employee.designation) {
-          query = query.where('designation', '==', employee.designation);
+        if (employee.especialidad) {
+          query = query.where('especialidad', '==', employee.especialidad);
         }
         // where condition to match employee with given joinDate
-        if (employee.joinDate) {
+        if (employee.fechaIngreso) {
           // covert date string to date object
-          employee.joinDateTimestamp = new Date(employee.joinDate);
-          query = query.where('joinDateTimestamp', '==', employee.joinDateTimestamp);
+          employee.fechaIngresoTimestamp = new Date(employee.fechaIngreso);
+          query = query.where('fechaIngresoTimestamp', '==', employee.fechaIngresoTimestamp);
         }
 
         /* #3 also apply query to salary order by `ascending`. */
@@ -128,7 +128,7 @@ export class EmployeeService {
         */
 
         // where condition to match employee with given name
-        if (employee.name) {
+        if (employee.nombre) {
           /* look: orderBy and equality '==' cannot apply together.
               that is the reason I comment this equality
           */
@@ -136,7 +136,7 @@ export class EmployeeService {
 
           // #6. Offset by a property, suppose we want employee whose
           // name starts with `An` then apply startAt('An')
-          query = query.orderBy('name', 'asc').startAt('An');
+          query = query.orderBy('nombre', 'asc').startAt('An');
 
           /* similar query `endAt`, `startAfter` and `endBefore`
               can be applied like this:
@@ -160,22 +160,22 @@ export class EmployeeService {
 
     // Order descending by numbers or strings
     this.firestore.collection('Employees', ref => ref.orderBy('age', 'desc'));
-    this.firestore.collection('Employees', ref => ref.orderBy('name', 'desc')); // reverse alphabetical
+    this.firestore.collection('Employees', ref => ref.orderBy('nombre', 'desc')); // reverse alphabetical
 
     // Limit results
     this.firestore.collection('Employees', ref => ref.orderBy('age').limit(5));
 
     // Offset by a property
-    this.firestore.collection('Employees', ref => ref.orderBy('name').startAt('An'));
+    this.firestore.collection('Employees', ref => ref.orderBy('nombre').startAt('An'));
 
     // Get items by equality to a property
-    this.firestore.collection('Employees', ref => ref.where('name', '==', 'Ankit'));
+    this.firestore.collection('Employees', ref => ref.where('nombre', '==', 'Ankit'));
 
     // Get items by range operators
     this.firestore.collection('Employees', ref => ref.where('age', '>=', 5));
 
     // Chain equality for multiple properties
-    this.firestore.collection('Employees', ref => ref.where('age', '==', 5) .where('name', '==', 'Ankit'));
+    this.firestore.collection('Employees', ref => ref.where('age', '==', 5) .where('nombre', '==', 'Ankit'));
   }
 
 }

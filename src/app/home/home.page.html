@@ -9,13 +9,13 @@
     <ion-buttons slot="end">
       <ion-button color="primary" *ngIf="!requestToken"
         (click)="requestPushNotificationsPermission()">
-        Enable Notifications
+        Permitir Notificaciones
       </ion-button>
       <ion-button color="success" *ngIf="requestToken">
-        Token Generated
+        Token Generado
       </ion-button>
       <ion-button color="success" (click)="getCurrentPosition()">
-        ALLOW LOCATION
+        Permitir Localización
       </ion-button>
     </ion-buttons>
   </ion-toolbar>
@@ -26,17 +26,17 @@
     <p padding class="selectable">{{ requestToken }}</p>
   </ion-label>
   <ion-button color="success" *ngIf="requestToken" expand="block" (click)="copyToClipboard()">
-    Copy Token
+    Copiar Token
   </ion-button>
   <ion-card class="welcome-card">
     <img src="/assets/shapes.svg" alt=""/>
     <ion-card-header>
-      <ion-card-subtitle>Get Started</ion-card-subtitle>
-      <ion-card-title>Upload to Firebase</ion-card-title>
+      <ion-card-subtitle>Iniciar</ion-card-subtitle>
+      <ion-card-title>Actualizar en Firebase</ion-card-title>
     </ion-card-header>
     <ion-card-content>
       <p>
-        Now that your app has been created, <b>Upload Image File To Firebase Cloud Storage using AngularFire.</b>
+        Ahora que ha sido creada <b>Actualiza el archivo de Imagen en el Almacenamiento de Firebase usando AngularFire.</b>
       </p>
     </ion-card-content>
   </ion-card>
@@ -47,12 +47,12 @@
     <input type="file" (change)="upload($event)" accept=".png,.jpg" />
     <progress max="100" [value]="(uploadProgress | async)"></progress>
     <div class="result" *ngIf="downloadURL | async; let uploadSrc">
-      <a [href]="uploadSrc">You just uploaded this file!</a>
+      <a [href]="uploadSrc">Se ha actualizado este archivo.</a>
     </div>
     <section class="control-bar" *ngIf="uploadState | async; let state">
-      <ion-button (click)="task.pause()" [disabled]="state === 'paused'">Pause</ion-button>
-      <ion-button (click)="task.cancel()" [disabled]="!(state === 'paused' || state === 'running')">Cancel</ion-button>
-      <ion-button (click)="task.resume()" [disabled]="state === 'running'">Resume</ion-button>
+      <ion-button (click)="task.pause()" [disabled]="state === 'paused'">Pausa</ion-button>
+      <ion-button (click)="task.cancel()" [disabled]="!(state === 'paused' || state === 'running')">Cancelar</ion-button>
+      <ion-button (click)="task.resume()" [disabled]="state === 'running'">Resumir</ion-button>
     </section>
     <div class="container" *ngIf="downloadURL | async; let url">
       <img [src]="url" alt="Image from AngularFireStorage">
@@ -62,11 +62,11 @@
   <ion-card>
     <ion-list lines="none">
       <ion-list-header>
-        <ion-label>Firebase CRUD - Create|Read|Update|Delete - Query Demo.</ion-label>
+        <ion-label>Sigvit - Agregar|Buscar|Actualizar|Eliminar - Demo.</ion-label>
       </ion-list-header>
       <ion-item href="home/employees">
         <ion-icon slot="start" color="primary" name="book"></ion-icon>
-        <ion-label color="primary">Employee CRUD/Query in Firebase 👆</ion-label>
+        <ion-label color="primary">Médicos de Sigvit en Firebase</ion-label>
       </ion-item>
     </ion-list>
   </ion-card>

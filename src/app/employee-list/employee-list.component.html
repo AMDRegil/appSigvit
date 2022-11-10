@@ -11,66 +11,66 @@
 
 <ion-content padding>
   <p>
-    Add New Employee OR Search Employee.<br>
-    <span style="color:gray;">(We'll use Firebase Query to get Search results)</span>
+    Agregar Nuevos Médicos o Buscar Existentes.<br>
+    <span style="color:gray;">(Se usa Firebase Query para obtener los resultados de la búsqueda)</span>
   </p>
   <table>
     <tbody>
       <tr>
-        <td>Name</td>
+        <td>Nombre</td>
         <td>
           <input type="text" [(ngModel)]="employee.name" required>
         </td>
       </tr>
       <tr>
-        <td>Phone</td>
+        <td>Teléfono</td>
         <td>
           <input type="number" [(ngModel)]="employee.phone" required>
         </td>
       </tr>
       <tr>
-        <td>Designation</td>
+        <td>Especialidad</td>
         <td>
           <input type="text" [(ngModel)]="employee.designation" required>
         </td>
       </tr>
       <tr>
-        <td>Salary</td>
+        <td>Matrícula</td>
         <td>
           <input type="number" [(ngModel)]="employee.salary" required>
         </td>
       </tr>
       <tr>
-        <td>JoinDate</td>
+        <td>FechaIngreso</td>
         <td>
           <input type="date" [(ngModel)]="employee.joinDate" required>
         </td>
       </tr>
       <tr>
-        <td>Address</td>
+        <td>Dirección</td>
         <td>
           <input type="text" [(ngModel)]="employee.address" required>
         </td>
       </tr>
       <tr>
-        <td>ExtraInfo</td>
+        <td>Adicional</td>
         <td>
           <input type="text" [(ngModel)]="employee.extraInfo" required>
         </td>
       </tr>
       <tr>
-        <td>Add</td>
+        <td>Añadir</td>
         <td>
           <!-- submit button (to create new employee) -->
-          <ion-button *ngIf="!toggleUpdateBtn" (click)="addEmployee(employee)">Submit</ion-button>
+          <ion-button *ngIf="!toggleUpdateBtn" (click)="addEmployee(employee)">Enviar</ion-button>
           <!-- update button (to update existing employee) -->
-          <ion-button *ngIf="toggleUpdateBtn" (click)="updateEmployee(employee)">update</ion-button>
+          <ion-button *ngIf="toggleUpdateBtn" (click)="updateEmployee(employee)">Actualizar</ion-button>
 
           <!-- search button (find employee based on given info) -->
-          <ion-button *ngIf="toggleSearchBtn" (click)="searchEmployee(employee)">Search</ion-button>
+          <ion-button *ngIf="toggleSearchBtn" (click)="searchEmployee(employee)">Buscar</ion-button>
           <!-- clear search button (clear search result and display all employee)
               by calling clearSearch() -->
-          <ion-button *ngIf="!toggleSearchBtn" (click)="clearSearch()">Clear Search</ion-button>
+          <ion-button *ngIf="!toggleSearchBtn" (click)="clearSearch()">Limpiar Búsqueda</ion-button>
         </td>
       </tr>
     </tbody>
@@ -79,34 +79,34 @@
   <p style="border-top: 1px solid gray;"></p>
   
   <p>
-    Employee List Works!
+    Lista de Médicos Exitosa.
   </p>
   <table>
     <thead>
-      <th>Name</th>
-      <th>Phone</th>
-      <th>Designation</th>
-      <th>Salary</th>
-      <th>JoinDate</th>
-      <th>Address</th>
-      <th>ExtraInfo</th>
-      <th>Update</th>
-      <th>Delete</th>
+      <th>Nombre</th>
+      <th>Teléfono</th>
+      <th>Especialidad</th>
+      <th>Matrícula</th>
+      <th>FechaIngreso</th>
+      <th>Dirección</th>
+      <th>Adicional</th>
+      <th>Actualizar</th>
+      <th>Eliminar</th>
     </thead>
     <tbody>
       <tr *ngFor="let employee of employees">
-        <td>{{ employee.name }}</td>
-        <td>{{ employee.phone }}</td>
-        <td>{{ employee.designation }}</td>
-        <td>{{ employee.salary }}</td>
-        <td>{{ employee.joinDate }}</td>
-        <td>{{ employee.address }}</td>
-        <td>{{ employee.extraInfo }}</td>
+        <td>{{ employee.nombre }}</td>
+        <td>{{ employee.telefono }}</td>
+        <td>{{ employee.especialidad }}</td>
+        <td>{{ employee.matricula }}</td>
+        <td>{{ employee.fechaIngreso }}</td>
+        <td>{{ employee.direccion }}</td>
+        <td>{{ employee.adicional }}</td>
         <td>
-          <ion-button (click)="editFunc(employee)">Edit</ion-button>
+          <ion-button (click)="editFunc(employee)">Editar</ion-button>
         </td>
         <td>
-          <ion-button (click)="deleteEmployee(employee.id)">Delete</ion-button>
+          <ion-button (click)="deleteEmployee(employee.id)">Eliminar</ion-button>
         </td>
       </tr>
     </tbody>
